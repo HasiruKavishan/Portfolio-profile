@@ -1,0 +1,28 @@
+---
+interface Props {
+  label: string;
+  value: string;
+  small?: boolean;
+}
+
+const { label, value, small = false } = Astro.props;
+---
+
+<div class="p-4 md:p-6 flex flex-col gap-1 md:gap-2">
+
+  <!-- Label -->
+  <span class="text-[10px] tracking-[0.15em] text-[#888] uppercase">
+    {label}
+  </span>
+
+  <!-- Value -->
+  <span
+    class:list={[
+      'font-bold leading-snug break-words',
+      small ? 'text-[12px] md:text-[13px]' : 'text-[14px] md:text-[17px]',
+    ]}
+  >
+    {value}
+  </span>
+
+</div>

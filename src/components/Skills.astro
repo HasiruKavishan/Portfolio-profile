@@ -1,0 +1,65 @@
+---
+const skillGroups = [
+  {
+    label: 'Languages & Frameworks',
+    items: [
+      'Java', 'Spring Boot', 'Spring MVC', 'NestJs', 'NodeJs',
+      'GraphQL', 'TypeScript', 'Angular', 'React', 'NextJs',
+      'JavaScript', 'HTML5', 'CSS', 'SCSS',
+    ],
+  },
+  {
+    label: 'Database',
+    items: ['MongoDB', 'PostgreSQL', 'MySQL', 'NoSQL', 'SQL'],
+  },
+  {
+    label: 'Cloud & DevOps',
+    items: ['Docker compose', 'Docker', 'Kubernetes', 'Minikube', 'CI/CD'],
+  },
+  {
+    label: 'Tools & Methodology',
+    items: [
+      'Git', 'BitBucket', 'GitLab', 'Swagger / OpenAPI',
+      'Postman', 'Figma', 'Jira', 'Agile Scrum', 'REST API', 'SOAP',
+    ],
+  },
+];
+---
+
+<!-- Header -->
+<div class="px-5 md:px-7 py-3 border-b border-[#ccc] text-[10px] tracking-[0.2em] text-[#888] uppercase">
+  Technical Skills
+</div>
+
+<!-- Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#ccc]">
+
+  {skillGroups.map((group) => (
+    <div class="p-4 md:p-6 flex flex-col gap-3">
+
+      <!-- Label -->
+      <div class="text-[10px] tracking-[0.15em] text-[#888] uppercase mb-1">
+        {group.label}
+      </div>
+
+      <!-- Skills -->
+      <div class="flex flex-wrap gap-2">
+
+        {group.items.map((skill) => (
+          <span
+            class="text-[10px] md:text-[11px]
+            border border-[#ccc]
+            px-2 py-0.5
+            hover:border-[#ff3d00] hover:text-[#ff3d00]
+            transition-colors cursor-default"
+          >
+            {skill}
+          </span>
+        ))}
+
+      </div>
+
+    </div>
+  ))}
+
+</div>

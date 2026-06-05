@@ -1,0 +1,63 @@
+---
+interface Props {
+  num: string;
+  title: string;
+  category: string;
+  accent?: boolean;
+  description: string;
+  link?: string;
+}
+
+const { num, title, category, accent = false, description, link = '#' } = Astro.props;
+---
+
+<a
+  href={link}
+  target="_blank"
+  class="group relative border-b md:border-b-0 md:border-r border-[#ccc] last:border-r-0
+  p-4 md:p-6 flex flex-col gap-2 md:gap-3
+  hover:bg-[#111] transition-colors duration-200 cursor-pointer no-underline"
+>
+
+  <!-- Number -->
+  <span class="text-[10px] md:text-[11px] text-[#888] group-hover:text-[#666] font-mono">
+    {num}
+  </span>
+
+  <!-- Title -->
+  <h3
+    class="font-barlow font-bold text-[16px] md:text-[20px] uppercase leading-tight tracking-tight
+    text-[#111] group-hover:text-[#f2f0eb]"
+  >
+    {title}
+  </h3>
+
+  <!-- Category -->
+  <span
+    class:list={[
+      'inline-block self-start text-[9px] md:text-[10px] tracking-[0.12em] px-2 py-0.5',
+      accent
+        ? 'bg-[#ff3d00] text-[#f2f0eb]'
+        : 'bg-[#111] text-[#f2f0eb] group-hover:bg-[#f2f0eb] group-hover:text-[#111]',
+    ]}
+  >
+    {category}
+  </span>
+
+  <!-- Description -->
+  <p
+    class="text-[11px] md:text-[12px] text-[#666] leading-relaxed
+    group-hover:text-[#999]"
+  >
+    {description}
+  </p>
+
+  <!-- Arrow -->
+  <span
+    class="absolute bottom-3 md:bottom-5 right-3 md:right-5 text-[16px] md:text-[18px]
+    text-[#ccc] group-hover:text-[#f2f0eb] transition-colors"
+  >
+    ↗
+  </span>
+
+</a>

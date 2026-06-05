@@ -1,0 +1,135 @@
+---
+const jobs = [
+  {
+    num: '01',
+    role: 'Senior Software Engineer',
+    company: 'Colomba-Link',
+    period: 'Nov 2022 – Present',
+    location: 'Switzerland (Remote)',
+    current: true,
+    points: [
+      'Built front-end features using React.js & Siemens IX framework for the Coonnect HR platform',
+      'Developed and maintained back-end services with Java Spring Boot and MongoDB',
+      'Worked on Monidas IoT platform — device data processing via ChirpStack (LoRaWAN)',
+      'Designed REST APIs supporting B2C, B2B, and Admin module workflows',
+      'Wrote and maintained API documentation with Swagger',
+    ],
+  },
+  {
+    num: '02',
+    role: 'Software Engineer',
+    company: 'Haulmatic Technologies',
+    period: 'Dec 2019 – Oct 2022',
+    location: 'Sri Lanka',
+    current: false,
+    points: [
+      'Built fleet & transport management system for complex supply chain automation',
+      'Developed front-end with Angular 9 + NgXs state management and GraphQL',
+      'Built microservice back-end with Spring Boot, Node.js, NestJs and MongoDB',
+      'Contributed to mobile front-end using Flutter and GraphQL',
+      'Led 3rd-line production support; handled sprint planning and task estimation in Jira',
+    ],
+  },
+  {
+    num: '03',
+    role: 'Associate Software Engineer',
+    company: 'Araaya Business Solution',
+    period: 'Dec 2017 – Dec 2019',
+    location: 'Sri Lanka',
+    current: false,
+    points: [
+      'Developed land details apply system for the Ministry of Land Development using Spring Boot, Angular 7 & MySQL',
+      'Worked on modules for an EV fast charging product',
+    ],
+  },
+];
+---
+
+<div class="px-5 md:px-7 py-3 border-b border-[#ccc] text-[10px] tracking-[0.2em] text-[#888] uppercase">
+  Professional Experience
+</div>
+
+<div class="divide-y divide-[#ccc]">
+  {jobs.map((job) => (
+    <div class="grid grid-cols-1 md:grid-cols-[180px_1fr] lg:grid-cols-[220px_1fr] md:divide-x divide-[#ccc]">
+
+      <!-- Left -->
+      <div class="p-4 md:p-6 flex flex-col gap-2 border-b md:border-b-0 border-[#ccc]">
+
+        <span class="font-barlow text-[24px] md:text-[32px] font-black text-[#e0dcd4] leading-none">
+          {job.num}
+        </span>
+
+        <div class="text-[12px] text-[#888]">
+          {job.period}
+        </div>
+
+        <div class="text-[11px] text-[#aaa]">
+          {job.location}
+        </div>
+
+        {job.current && (
+          <span class="inline-flex items-center gap-1 text-[10px] text-[#00c851] tracking-widest mt-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#00c851]"></span>
+            CURRENT
+          </span>
+        )}
+
+      </div>
+
+      <!-- Right -->
+      <div class="p-4 md:p-6 flex flex-col gap-3">
+
+        <div>
+          <div class="font-barlow text-[18px] md:text-[20px] font-bold uppercase tracking-tight">
+            {job.role}
+          </div>
+
+          <div class="text-[12px] text-[#ff3d00] tracking-[0.08em] mt-0.5">
+            {job.company}
+          </div>
+        </div>
+
+        <ul class="flex flex-col gap-2">
+          {job.points.map((point) => (
+            <li class="text-[12px] md:text-[13px] text-[#555] leading-relaxed flex gap-2">
+              <span class="text-[#ccc] mt-0.5 shrink-0">—</span>
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+
+      </div>
+
+    </div>
+  ))}
+</div>
+
+<!-- Certifications -->
+<div class="border-t-[3px] border-[#111] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#ccc]">
+
+  {[
+    'Google Cloud Fundamentals: Core Infrastructure',
+    'Getting Started with Google Kubernetes Engine',
+    'Architecting with Google Kubernetes Engine: Foundations',
+  ].map((cert, i) => (
+    <div class="p-4 md:p-5 flex gap-3 items-start">
+
+      <span class="text-[#ff3d00] text-[16px] shrink-0">
+        ✦
+      </span>
+
+      <div>
+        <div class="text-[10px] text-[#aaa] tracking-widest mb-1 uppercase">
+          Certification {String(i + 1).padStart(2, '0')}
+        </div>
+
+        <div class="text-[12px] md:text-[13px] leading-snug">
+          {cert}
+        </div>
+      </div>
+
+    </div>
+  ))}
+
+</div>
